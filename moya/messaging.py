@@ -155,3 +155,13 @@ class API:
         """
         r = self.request("avatar", action="get")
         return r.content
+
+    def modify_avatar(self, file):
+        """
+        https://docs.moya.app/#avatar-image
+
+        Create or Modify Avatar
+        """
+        r = self.request("avatar", action="put", files=[('file', ('avatar.png', file))])
+        return r.json
+
